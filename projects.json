@@ -1,0 +1,139 @@
+[
+    {
+        "id": "a53a1e8e-f463-491e-8d5c-d745f7915579",
+        "name": "tholapz.com",
+        "description": "A personal journal of Kamol Treewatchararat",
+        "services": [
+            {
+                "id": "80bd0869-8633-414d-96f3-6f25c7fad8e6",
+                "name": "Website",
+                "host": "GitHub",
+                "url": "https://www.tholapz.com",
+                "repo_url": "https://github.com/tholapz/tholapz.github.io",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "4e68b36d-f029-46cc-b1e5-b7e6597a9799",
+        "name": "saijaiai.com",
+        "description": "AI-powered Thai language learning and evaluation platform",
+        "services": [
+            {
+                "id": "6f15e0c0-b518-4f76-a287-86a7daf0ad52",
+                "name": "Website",
+                "host": "Cloudflare",
+                "url": "https://www.saijaiai.com",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            },
+            {
+                "id": "3df60d07-bdb6-4ca6-8029-62c8ac20093f",
+                "name": "Learn",
+                "host": "Cloudflare",
+                "url": "https://learn.saijaiai.com",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            },
+            {
+                "id": "5cb54183-55e4-479e-83a5-341796deda5c",
+                "name": "Eval",
+                "host": "Cloudflare",
+                "url": "https://eval.saijaiai.com",
+                "status": "outage",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "b66badde-837a-43e9-9da2-847834cad7b9",
+        "name": "Wellness",
+        "description": "Wellness tracking application",
+        "services": [
+            {
+                "id": "00b12aee-5f45-4c0d-a6c4-57513c3486fd",
+                "name": "App",
+                "host": "Cloudflare",
+                "url": "https://wellness-899.pages.dev",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "79731f00-ebfe-4e94-ae9e-5e10c4a5c60b",
+        "name": "Daily Expense Tracker",
+        "description": "Personal daily expense tracking app",
+        "services": [
+            {
+                "id": "927ab09d-08fc-472d-a1f4-8cbffc88de26",
+                "name": "App",
+                "host": "GCP",
+                "url": "https://daily-expense-tracker-73693.web.app",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "673acbe1-e0f3-489e-a538-57178224a01a",
+        "name": "Select",
+        "description": "Select application",
+        "services": [
+            {
+                "id": "c39151a2-dd61-42b6-b044-38679ff97349",
+                "name": "App",
+                "host": "GCP",
+                "url": "https://select-bb1a2.web.app",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "f8355d10-5064-458a-946f-76674b51a084",
+        "name": "Surgery Data Labeling Demo",
+        "description": "Demo worker for surgery data labeling pipeline",
+        "services": [
+            {
+                "id": "98c9e232-eba7-4e1a-b393-fa9a5f256836",
+                "name": "Worker",
+                "host": "Cloudflare",
+                "url": "https://surgery-data-labeling-demo.tholapz.workers.dev",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "a9e2cf26-6b14-4540-b763-d4dc73c083d9",
+        "name": "DocSense",
+        "description": "Document intelligence application",
+        "services": [
+            {
+                "id": "70db37f4-7e67-4ce6-86fb-2f1dbe62fa31",
+                "name": "App",
+                "host": "Cloudflare",
+                "url": "https://docsense.pages.dev",
+                "status": "operational",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    },
+    {
+        "id": "818c1bf9-def8-4ffc-ac0c-a56d54477c08",
+        "name": "Dauin Macro Diving Expedition",
+        "description": "Generate trip plan from social media contents",
+        "services": [
+            {
+                "id": "e9afacd5-5a67-4d57-9aa1-c666b57c14dd",
+                "name": "Server",
+                "host": "Alibaba",
+                "url": "http://8.219.2.56",
+                "status": "outage",
+                "last_checked": "2026-04-27T08:42:37Z"
+            }
+        ]
+    }
+]

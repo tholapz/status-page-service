@@ -1,18 +1,36 @@
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Annotated
+
+from pydantic import field_validator
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    app_name: str = "my-service"
+    app_name: str = "status-page-service"
     environment: str = "development"
     debug: bool = False
     log_level: str = "INFO"
 
-    # Cloud Run injects PORT=8080 at runtime; local dev defaults to 8000.
-    # pydantic-settings maps the PORT env var here automatically (case-insensitive).
     port: int = 8000
 
-    # Comma-separated origins are parsed into a list by pydantic-settings.
-    cors_origins: list[str] = ["http://localhost:3000"]
+    # NoDecode tells pydantic-settings to skip JSON-parsing for this field so
+    # the field_validator below can handle plain comma-separated strings.
+    cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
+
+    @field_validator("cors_origins", mode="before")
+    @classmethod
+    def parse_cors_origins(cls, v: object) -> object:
+        if isinstance(v, str):
+            stripped = v.strip()
+            if stripped.startswith("["):
+                import json
+                return json.loads(stripped)
+            return [origin.strip() for origin in stripped.split(",") if origin.strip()]
+        return v
+
+    database_url: str = "sqlite+aiosqlite:///./status.db"
+
+    # Interval between automated service health checks (seconds).
+    check_interval_seconds: int = 300
 
     model_config = SettingsConfigDict(
         env_file=".env",

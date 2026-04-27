@@ -25,11 +25,13 @@ WORKDIR /app
 COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY --from=builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn
 
-# Copy application source
+# Copy application source and seed data
 COPY app/ ./app/
+COPY projects.json ./
 
-# Run as non-root user
-RUN addgroup --system app && adduser --system --ingroup app app
+# Create the data directory for SQLite and hand ownership to the app user
+RUN addgroup --system app && adduser --system --ingroup app app \
+    && mkdir -p /app/data && chown app:app /app/data
 USER app
 
 # Built-in health check — works without curl (uses Python stdlib urllib)

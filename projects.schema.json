@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.tholapz.com/schemas/projects.schema.json",
+  "title": "Projects Registry",
+  "description": "Deployment registry for all web projects managed by Kamol Treewatchararat",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/project"
+  },
+  "$defs": {
+    "project": {
+      "type": "object",
+      "required": ["id", "name", "services"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+          "description": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable project name"
+        },
+        "description": {
+          "type": "string",
+          "description": "One-sentence summary of what the project does"
+        },
+        "services": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/service" },
+          "description": "One or more deployed services that make up this project"
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "required": ["id", "name", "host", "url", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}$",
+          "description": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Service role, e.g. frontend, backend, worker"
+        },
+        "host": {
+          "$ref": "#/$defs/host"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Canonical public URL for this service"
+        },
+        "repo_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Repository URL if this service has its own repo"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "last_checked": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp when the status was last verified by automated check"
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["operational", "outage"],
+      "description": "operational = The service is functioning normally, outage = The service is completely down or entirely inaccessible"
+    },
+    "host": {
+      "type": "string",
+      "enum": [
+        "GitHub",
+        "Cloudflare",
+        "DigitalOcean",
+        "Vercel",
+        "Netlify",
+        "Render",
+        "Railway",
+        "Fly.io",
+        "AWS",
+        "GCP",
+        "Azure",
+        "Alibaba",
+        "Other"
+      ]
+    }
+  }
+}
